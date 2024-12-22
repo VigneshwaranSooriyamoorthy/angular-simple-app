@@ -133,10 +133,10 @@ body {
 }
 
 .card {
-  height: 20rem;
-  margin: 1rem;
+  height: 20cqw;
+  margin: 1cqw;
   background-color: #eeeeee;
-  border-radius: 2rem;
+  border-radius: 2cqw;
   cursor: pointer;
   box-shadow: 5px 10px 10px 1px #aaaaaa;
 }
@@ -147,9 +147,9 @@ body {
 }
 
 .card-top {
-  height: 10rem;
-  border-top-left-radius: 2rem;
-  border-top-right-radius: 2rem;
+  height: 11cqw;
+  border-top-left-radius: 2cqw;
+  border-top-right-radius: 2cqw;
 }
 
 .card-icon {
@@ -161,17 +161,17 @@ body {
 
 .card span {
   color: #229844;
-  font-size: 5rem;
-  padding: 0.5rem;
+  font-size: 5cqw;
+  padding: 0.5cqw;
   border: 1px solid #bbb;
-  border-radius: 4rem;
+  border-radius: 4cqw;
   overflow: hidden;
   background-color: #eeeeee;
 }
 
 .card p {
   text-align: center;
-  font-size: 1.25rem;
+  font-size: 2cqw;
   font-weight: 500;
   font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
   margin: 0;

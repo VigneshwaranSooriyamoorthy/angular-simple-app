@@ -8,7 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "serve:ssr:angular-simple-app": "node dist/angular-simple-app/server/server.mjs",
-    "ghpages-deploy": "ng deploy --repo=https://github.com/VigneshwaranSooriyamoorthy/angular-simple-app.git"
+    "ghpages-deploy": "ng deploy --base-href=/angular-simple-app/"
   },
   "private": true,
   "dependencies": {
