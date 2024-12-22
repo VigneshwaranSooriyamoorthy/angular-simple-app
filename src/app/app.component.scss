@@ -1,0 +1,180 @@
+.header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.header img {
+  width: 10vw;
+  padding: 5px;
+}
+
+.header span {
+  font-size: 5vw;
+  color: #151b3f;
+}
+
+body {
+  padding-bottom: 150px;
+}
+
+.banner {
+  display: flex;
+  flex-direction: column;
+  background-color: #229844;
+}
+
+.banner-header {
+  background-color: #151b3f;
+  position: relative;
+  left: 32%;
+  height: 1rem;
+  width: 12.5%;
+  transform: skew(45deg);
+}
+
+.banner-body {
+  display: grid;
+  grid-template-columns: 1.5fr 2fr 0.5fr 1fr 1fr;
+}
+
+.banner-body-left {
+  display: flex;
+  flex-direction: column;
+  width: max-content;
+  color: white;
+}
+
+.banner-body-left > span:nth-of-type(1) {
+  font-size: 6.1cqw;
+}
+
+.banner-body-left > span:nth-of-type(2) {
+  font-size: 2.775cqw;
+}
+
+.banner-body-horizontal-line {
+  margin-top: 2%;
+  margin-bottom: 2%;
+  width: 68%;
+  height: 1.65px;
+  background-color: white;
+}
+
+.banner-body-icons-group {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2%;
+}
+
+.banner-body-icons-group-row {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+
+.banner-body-icon {
+  flex: 1;
+  display: flex;
+}
+
+.banner-body-icon:hover {
+  color: chartreuse;
+}
+
+.banner-body-icon .material-icons {
+  padding-right: 3%;
+  font-size: 1.75cqw;
+  cursor: pointer;
+}
+
+.banner-body-icon span:nth-of-type(2) {
+  font-size: 1.05cqw;
+  cursor: pointer;
+}
+
+.banner-body-vertical-line {
+  width: 0.15cqw;
+  background-color: white;
+}
+
+.banner-footer {
+  background-color: #151b3f;
+  position: relative;
+  top: 19%;
+  left: 54%;
+  height: 1rem;
+  width: 12.5%;
+  transform: skew(45deg);
+}
+
+.banner-body-right {
+  align-content: center;
+}
+
+.banner-body-right button {
+  background-color: #151b3f;
+  padding: 1.1cqw 2.5cqw 1.1cqw 1.5cqw;
+  color: white;
+  font-size: 1.75cqw;
+  border-radius: 2.5cqw;
+  cursor: pointer;
+}
+
+.banner-body-right button:hover {
+  color: chartreuse;
+}
+
+.cards {
+  padding: 2rem 0 2rem 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.card {
+  height: 20rem;
+  margin: 1rem;
+  background-color: #eeeeee;
+  border-radius: 2rem;
+  cursor: pointer;
+  box-shadow: 5px 10px 10px 1px #aaaaaa;
+}
+
+.card:hover {
+  border: 0.1cqw solid #151b3f;
+  box-shadow: 5px 10px 10px 1px #151b3f;
+}
+
+.card-top {
+  height: 10rem;
+  border-top-left-radius: 2rem;
+  border-top-right-radius: 2rem;
+}
+
+.card-icon {
+  position: relative;
+  top: -15%;
+  display: flex;
+  justify-content: center;
+}
+
+.card span {
+  color: #229844;
+  font-size: 5rem;
+  padding: 0.5rem;
+  border: 1px solid #bbb;
+  border-radius: 4rem;
+  overflow: hidden;
+  background-color: #eeeeee;
+}
+
+.card p {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 500;
+  font-family: "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  position: relative;
+  bottom: 8%;
+}
