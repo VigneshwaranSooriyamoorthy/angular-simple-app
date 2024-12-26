@@ -1,0 +1,50 @@
+<div class="body">
+  <div class="banner">
+    <div class="banner-header"></div>
+    <div class="banner-body">
+      <div></div>
+      <div class="banner-body-left">
+        <span>Selenium</span>
+        <span>Certification Training</span>
+        <div class="banner-body-horizontal-line"></div>
+        <div class="banner-body-icons-group">
+          <div class="banner-body-icons-group-row">
+            <div class="banner-body-icon">
+              <span class="material-icons">play_circle</span>
+              <span>Live Instructor led Online Training</span>
+            </div>
+            <div class="banner-body-icon">
+              <span class="material-icons">calendar_month</span>
+              <span>Weekend Classes</span>
+            </div>
+          </div>
+          <div class="banner-body-icons-group-row">
+            <div class="banner-body-icon">
+              <span class="material-icons">assignment</span>
+              <span>Regular Assignments</span>
+            </div>
+            <div class="banner-body-icon">
+              <span class="material-icons">headphones</span>
+              <span>Lifetime Access to Session Recording</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="banner-body-vertical-line"></div>
+      <div class="banner-body-right">
+        <button type="button">JOIN NOW</button>
+      </div>
+      <div></div>
+    </div>
+    <div class="banner-footer"></div>
+  </div>
+  <div class="cards">
+    <div class="card" *ngFor="let card of cards">
+      <div class="card-top" style="background: url('CardBG.png')"></div>
+      <div class="card-icon">
+        <span class="material-icons">{{ card.icon }}</span>
+      </div>
+      <p>{{ card.name }}</p>
+    </div>
+  </div>
+</div>

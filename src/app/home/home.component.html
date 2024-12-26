@@ -1,0 +1,15 @@
+<div class="apps">
+  <div class="app" *ngFor="let app of apps">
+    <a title="app.name" class="material-icons" (click)="openApp(app.url)">{{ app.icon }}</a>
+    <span>{{ app.name }}</span>
+  </div>
+</div>
+<div class="dialog-backdrop" [ngClass]="{ visible: openDialog }">
+  <div class="dialog">
+    <span [innerHTML]="joke"></span>
+    <div class="buttons">
+      <button type="button" (click)="setJoke()">NEXT JOKE</button>
+      <button type="button" (click)="openDialog = false">CLOSE</button>
+    </div>
+  </div>
+</div>
