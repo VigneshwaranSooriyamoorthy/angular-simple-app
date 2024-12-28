@@ -1,18 +1,21 @@
 import {Component} from '@angular/core';
-import {NgClass, NgForOf} from "@angular/common";
+import {NgForOf, NgIf} from "@angular/common";
 import {FormsModule} from '@angular/forms';
+import {buttonType, DialogComponent} from '../util/dialog/dialog.component';
 
 @Component({
   selector: 'app-home',
   imports: [
     NgForOf,
     FormsModule,
-    NgClass,
+    DialogComponent,
+    NgIf,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
 export class HomeComponent {
+
   apps = [
     {
       'name': 'Simple Calculator',
@@ -37,8 +40,9 @@ export class HomeComponent {
   ];
   openDialog: boolean = false;
   joke: string = '';
+  protected readonly buttonType = buttonType;
 
-  setJoke() {
+  getJoke() {
     fetch('https://v2.jokeapi.dev/joke/Any?safe-mode')
       .then(response => {
         if (response.ok) {
@@ -57,10 +61,20 @@ export class HomeComponent {
 
   openApp(url: string) {
     if (url === '') {
-      this.setJoke();
+      this.getJoke();
       this.openDialog = true;
     } else {
       window.open(url, '_self');
     }
   }
+
+  processDialogEvent($event: boolean) {
+    if ($event) {
+      this.getJoke();
+    } else {
+      this.joke = '';
+      this.openDialog = false;
+    }
+  }
+
 }

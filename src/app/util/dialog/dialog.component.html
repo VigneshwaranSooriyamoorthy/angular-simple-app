@@ -1,0 +1,12 @@
+<div class="dialog-backdrop">
+  <div class="dialog">
+    <span [innerHTML]="message"></span>
+    <div *ngIf="onlyPrimaryButton" class="only-primary-button">
+      <button type="button" (click)="sender.emit(false)">CLOSE</button>
+    </div>
+    <div *ngIf="primarySecondaryButton" class="primary-secondary-buttons">
+      <button type="button" (click)="sender.emit(true)">{{ primaryButtonVisibleText }}</button>
+      <button type="button" (click)="sender.emit(false)">CLOSE</button>
+    </div>
+  </div>
+</div>

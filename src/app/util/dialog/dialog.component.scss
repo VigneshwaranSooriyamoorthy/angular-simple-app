@@ -1,0 +1,50 @@
+.dialog-backdrop {
+  backdrop-filter: blur(5px);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dialog {
+  width: 40%;
+  border: 2px solid black;
+  border-radius: 2cqw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: 5px 10px 10px 5px #aaaaaa;
+  background-color: white;
+}
+
+.dialog span {
+  padding: 2cqw;
+  font-size: 2cqw;
+}
+
+.primary-secondary-buttons {
+  display: flex;
+  flex-direction: row;
+  gap: 2cqw;
+}
+
+.only-primary-button button,
+.primary-secondary-buttons button {
+  padding: 1cqw;
+  margin-bottom: 1cqw;
+  font-size: 1.5cqw;
+  text-transform: uppercase;
+  border-radius: 2cqw;
+  cursor: pointer;
+}
+
+.only-primary-button button:hover,
+.primary-secondary-buttons button:hover,
+.primary-secondary-buttons button:focus {
+  box-shadow: 2px 2px 2px 2px #229844;
+}
