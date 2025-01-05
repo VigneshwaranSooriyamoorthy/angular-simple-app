@@ -1,1 +1,18 @@
-<p>simple-calculator works!</p>
+<div class="main-container">
+  <span>Simple Calculator</span>
+  <div class="shortcut">
+    [Esc] - Reset | [Enter] - Get result
+  </div>
+  <div class="output">
+    <span class="entry">{{ entry }}</span>
+    <div class="horizontal-line"></div>
+    <span class="result">{{ result }}</span>
+  </div>
+  <div class="number-pad">
+    <button class="key-{{ button }}"
+            *ngFor="let button of buttons"
+            (click)="compute(button)">
+      {{ button }}
+    </button>
+  </div>
+</div>

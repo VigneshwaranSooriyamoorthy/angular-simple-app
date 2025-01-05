@@ -1,0 +1,137 @@
+.main-container {
+  display: flex;
+  flex-direction: column;
+  border: solid 0.5cqw #151b3f;
+}
+
+.main-container > span {
+  margin-top: 1cqw;
+  margin-left: 1cqw;
+  margin-right: 1cqw;
+  text-align: right;
+  color: #151b3f;
+}
+
+.shortcut {
+  margin-right: 1cqw;
+  text-align: right;
+}
+
+.output {
+  margin: 1cqw;
+  padding: 1cqw;
+  border: solid 0.5cqw lightgray;
+  display: flex;
+  flex-direction: column;
+}
+
+.entry {
+  text-align: right;
+}
+
+.entry:empty::before {
+  content: '0';
+  color: lightgray;
+}
+
+.horizontal-line {
+  border-bottom: 0.25cqw solid lightgray;
+}
+
+.result {
+  text-align: right;
+}
+
+.result:empty::before {
+  content: '0';
+  color: lightgray;
+}
+
+.number-pad {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  margin: 1cqw;
+  gap: 0.5cqw;
+}
+
+.key-\= {
+  grid-area: 3 / 5 / span 2;
+}
+
+@media all and (min-width: 1000px) {
+  .main-container {
+    margin: 1% 30%;
+  }
+
+  .main-container > span {
+    font-size: 50px;
+  }
+
+  .shortcut {
+    font-size: 18px;
+  }
+
+  .entry {
+    font-size: 30px;
+  }
+
+  .result {
+    font-size: 25px;
+  }
+
+  .number-pad button {
+    font-size: 30px;
+  }
+}
+
+@media all and (min-width: 600px) and (max-width: 999px) {
+  .main-container {
+    margin: 10% 20%;
+  }
+
+  .main-container > span {
+    font-size: 45px;
+  }
+
+  .shortcut {
+    font-size: 20px;
+  }
+
+  .entry {
+    font-size: 35px;
+  }
+
+  .result {
+    font-size: 30px;
+  }
+
+  .number-pad button {
+    font-size: 35px;
+  }
+}
+
+@media all and (max-width: 599px) {
+  .main-container {
+    margin-top: 30%;
+  }
+
+  .main-container > span {
+    font-size: 30px;
+  }
+
+  .shortcut {
+    font-size: 15px;
+  }
+
+  .entry {
+    font-size: 30px;
+  }
+
+  .result {
+    font-size: 25px;
+  }
+
+  .number-pad button {
+    font-size: 25px;
+  }
+}

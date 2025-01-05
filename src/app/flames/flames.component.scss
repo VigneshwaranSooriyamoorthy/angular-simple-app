@@ -1,0 +1,51 @@
+.main-container {
+  display: grid;
+  grid-template-columns: 0.55fr 0.45fr;
+}
+
+.input-area,
+.output-area {
+  display: flex;
+  flex-direction: column;
+  padding-top: 5cqw;
+  font-size: 2cqw;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 1fr 0.5fr;
+  padding-top: 2cqw;
+  padding-left: 5cqw;
+}
+
+.field label {
+  padding-right: 1cqw;
+}
+
+.field input {
+  font-size: 1.5cqw;
+  padding: 2px;
+}
+
+.button-flames-container {
+  margin-left: 5cqw;
+  margin-top: 3cqw;
+  text-align: center;
+}
+
+.button-flames {
+  width: 10cqw;
+  font-size: 2cqw;
+  padding: 0.5cqw;
+  margin: 1cqw;
+}
+
+.output-area span {
+  text-align: center;
+}
+
+.output-area img {
+  height: 15cqw;
+  object-fit: contain;
+  padding: 2cqw;
+}
