@@ -1,9 +1,8 @@
 .apps {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-columns: repeat(5, 1fr);
   margin-top: 5cqw;
   margin-bottom: 10cqw;
-  //row-gap: 5cqw;
 }
 
 .app {

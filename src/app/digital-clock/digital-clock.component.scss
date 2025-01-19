@@ -1,0 +1,68 @@
+.main-container {
+  margin: 3% 15%;
+  padding: 3%;
+  border: solid black 5px;
+  border-radius: 2cqw;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 5px 10px 10px 1px #aaaaaa;
+  color: #151b3f;
+  justify-content: space-evenly;
+
+  //Google Font CSS
+  font-family: "Orbitron", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.days {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5cqw;
+  font-size: 1.5cqw;
+  font-weight: bold;
+  padding-left: 1cqw;
+  padding-right: 1.5cqw;
+  justify-content: space-evenly;
+}
+
+.today {
+  color: #229844;
+  font-weight: bold;
+  text-shadow: 0.15cqw 0.15cqw 0.3cqw #229844;
+}
+
+.clock {
+  position: relative;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: row;
+}
+
+.time-hh-mm {
+  font-size: 12.5cqw;
+  padding-right: 1cqw;
+}
+
+.clock-right {
+  display: flex;
+  flex-direction: column;
+  font-size: 3cqw;
+  justify-content: flex-end;
+  margin-bottom: 3cqw;
+  font-weight: bold;
+}
+
+.am-pm {
+  display: flex;
+  flex-direction: column;
+}
+
+.hour {
+  color: #229844;
+  font-weight: bold;
+  text-shadow: 0.15cqw 0.15cqw 0.3cqw #229844;
+}

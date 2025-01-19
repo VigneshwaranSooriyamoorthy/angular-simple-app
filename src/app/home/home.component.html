@@ -1,12 +1,13 @@
 <div class="apps">
   <div class="app" *ngFor="let app of apps">
-    <a title="{{ app.name }}" class="material-icons" (click)="openApp(app.url)">{{ app.icon }}</a>
+    <a title="{{ app.name }}" class="material-icons" (click)="openApp(app.name, app.url)">{{ app.icon }}</a>
     <span>{{ app.name }}</span>
   </div>
 </div>
-<app-dialog *ngIf="openDialog && joke"
-            [message]="joke"
-            [buttonType]="buttonType.PRIMARY_AND_SECONDARY_BUTTONS"
-            [primaryButtonVisibleText]="'Next Joke'"
-            (sender)="processDialogEvent($event)">
-</app-dialog>
+@if (openDialog && joke) {
+  <app-dialog [message]="joke"
+              [buttonType]="buttonType.PRIMARY_AND_SECONDARY_BUTTONS"
+              [primaryButtonVisibleText]="'Next Joke'"
+              (sender)="processDialogEvent($event)">
+  </app-dialog>
+}

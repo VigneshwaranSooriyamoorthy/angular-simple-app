@@ -44,8 +44,8 @@ export class FlamesComponent {
   }
 
   computeFlames() {
-    const name1 = this.firstPersonName.replaceAll(/\W/gi, '').toLowerCase();
-    const name2 = this.secondPersonName.replaceAll(/\W/gi, '').toLowerCase();
+    let name1 = this.firstPersonName.replaceAll(/\W/gi, '').toLowerCase();
+    let name2 = this.secondPersonName.replaceAll(/\W/gi, '').toLowerCase();
 
     if (name1 === '' || name2 === '') {
       alert('Please enter a valid name(s)');
@@ -54,8 +54,8 @@ export class FlamesComponent {
 
     for (let ch of name1) {
       if (name2.includes(ch)) {
-        name1.replace(ch, '');
-        name2.replace(ch, '');
+        name1 = name1.replace(ch, '');
+        name2 = name2.replace(ch, '');
       }
     }
     const diff_count = (name1 + name2).length;

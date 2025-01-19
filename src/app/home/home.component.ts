@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {NgForOf, NgIf} from "@angular/common";
+import {NgForOf} from "@angular/common";
 import {FormsModule} from '@angular/forms';
 import {buttonType, DialogComponent} from '../util/dialog/dialog.component';
 
@@ -9,7 +9,6 @@ import {buttonType, DialogComponent} from '../util/dialog/dialog.component';
     NgForOf,
     FormsModule,
     DialogComponent,
-    NgIf,
   ],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
@@ -36,11 +35,17 @@ export class HomeComponent {
       'name': 'FLAMES',
       'icon': 'favorite',
       'url': 'flames'
+    },
+    {
+      'name': 'Digital Clock',
+      'icon': 'alarm',
+      'url': 'digital-clock',
     }
   ];
   openDialog: boolean = false;
   joke: string = '';
   protected readonly buttonType = buttonType;
+  openClockDialog: boolean = false;
 
   getJoke() {
     fetch('https://v2.jokeapi.dev/joke/Any?safe-mode')
@@ -59,10 +64,14 @@ export class HomeComponent {
       })
   }
 
-  openApp(url: string) {
+  openApp(name:string, url: string) {
     if (url === '') {
-      this.getJoke();
-      this.openDialog = true;
+      switch (name) {
+        case 'Tell a joke':
+          this.getJoke();
+          this.openDialog = true;
+          break;
+      }
     } else {
       window.open(url, '_self');
     }

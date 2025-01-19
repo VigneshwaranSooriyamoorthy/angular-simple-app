@@ -1,0 +1,30 @@
+<div class="main-container">
+  <div class="days">
+    @let day = day$ | async;
+    <span [ngClass]="{today: day==0}">SUN</span>
+    <span [ngClass]="{today: day==1}">MON</span>
+    <span [ngClass]="{today: day==2}">TUE</span>
+    <span [ngClass]="{today: day==3}">WED</span>
+    <span [ngClass]="{today: day==4}">THU</span>
+    <span [ngClass]="{today: day==5}">FRI</span>
+    <span [ngClass]="{today: day==6}">SAT</span>
+  </div>
+  <div class="clock-container">
+    <div class="clock">
+      <div class="time-hh-mm">
+        <span>{{ hour$ | async }}</span>
+        <span class="time-separator">:</span>
+        <span>{{ minute$ | async | number: '2.' }}</span>
+      </div>
+      <div class="clock-right">
+        <div class="am-pm">
+          <span [ngClass]="{hour: (am_pm$ | async) === 'AM'}">AM</span>
+          <span [ngClass]="{hour: (am_pm$ | async) === 'PM'}">PM</span>
+        </div>
+        <div class="time-ss">
+          <span id="second">{{ second$ | async | number: '2.' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
