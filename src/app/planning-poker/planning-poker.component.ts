@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { filter, mergeMap, take, timer } from 'rxjs';
+import { Router } from '@angular/router';
 
 interface members {
   teamName: string;
@@ -32,7 +33,7 @@ export class PlanningPokerComponent implements OnInit {
   blob: string = 'https://jsonblob.com/api/jsonBlob/1376627307548172288';
   storyPoints: string[] = ['1', '2', '3', '5', '8', '13', '21', '34', '☕️', '🤷'];
   instructions: string[] = [
-    'Select your <b>TEAM</b>, based on which <b>NAME</b> will be updated',
+    'Select your <b>TEAM</b>, based on which, <b>NAME</b> will be updated',
     'Select your <b>NAME</b>',
     'Select the optional Checkbox if required',
     'Press <b>ENTER</b>',
@@ -48,7 +49,12 @@ export class PlanningPokerComponent implements OnInit {
   estimations: Estimation[] = [];
   isRevealEstimations: boolean = false;
 
+  constructor(private router: Router) {}
+
   ngOnInit() {
+    if (this.router.url.includes('github.io')) {
+      document.getElementsByTagName('header')[0].remove();
+    }
     fetch(this.blob)
       .then(res => res.json())
       .then((response: data) => {
@@ -86,7 +92,7 @@ export class PlanningPokerComponent implements OnInit {
   }
 
   pollBlob() {
-    timer(0, 2500)
+    timer(0, 1000)
       .pipe(
         mergeMap(() => this.getBlob()),
         filter((response: data) => {
@@ -96,7 +102,6 @@ export class PlanningPokerComponent implements OnInit {
         }),
         take(1),
       ).subscribe(() => {
-      console.log('Polling...');
     });
   }
 
@@ -123,7 +128,6 @@ export class PlanningPokerComponent implements OnInit {
     // Update the SM
     this.getBlob()
       .then((response: data) => {
-        console.log('Set SM');
         response.scrumMaster = this.isScrumMaster ? this.username : '';
         this.putBlob(response).then();
       });
