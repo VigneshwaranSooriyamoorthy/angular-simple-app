@@ -1,0 +1,27 @@
+<div class="section-tiffin-side-dish">
+  <span>Pick all the available vegetables</span>
+  <div class="select-all-checkbox">
+    <input
+      type="checkbox"
+      #cbSelectAll
+      class="checkbox"
+      id="select-all"
+      (change)="selectAllCheckboxes(cbSelectAll.checked)"
+    >
+    <label for="select-all">Select All</label>
+  </div>
+  <div class="tiffin-side-dish">
+    @for (veggie of TIFFIN_SIDE_DISH; track veggie) {
+      <div>
+        <input
+          type="checkbox"
+          class="checkbox"
+          id="{{ veggie.Vegetable }}"
+          (change)="updateSelectAll()"
+        >
+        <label for="{{ veggie.Vegetable }}">{{ veggie.Vegetable }}</label>
+      </div>
+    }
+  </div>
+  <button (click)="setAvailableVegForChutney()">Proceed</button>
+</div>

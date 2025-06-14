@@ -8,9 +8,9 @@ describe('SimpleCalculatorComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [SimpleCalculatorComponent]
+      imports: [SimpleCalculatorComponent],
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(SimpleCalculatorComponent);
     component = fixture.componentInstance;

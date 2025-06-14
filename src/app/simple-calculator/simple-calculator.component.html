@@ -9,10 +9,8 @@
     <span class="result">{{ result }}</span>
   </div>
   <div class="number-pad">
-    <button class="key-{{ button }}"
-            *ngFor="let button of buttons"
-            (click)="compute(button)">
-      {{ button }}
-    </button>
+    @for (button of buttons; track $index) {
+      <button class="key-{{ button }}" (click)="compute(button)">{{ button }}</button>
+    }
   </div>
 </div>

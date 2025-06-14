@@ -1,0 +1,47 @@
+[
+  {
+    "Vegetable": "Chinna Venkaayam",
+    "Options": [
+      "Raw Chutney",
+      "Kothika Vacha Chutney",
+      "Sambar"
+    ]
+  },
+  {
+    "Vegetable": "Periya Venkaayam",
+    "Options": [
+      "Venkaaya Chutney",
+      "Kaini Saaru",
+      "Kothika Vacha Chutney"
+    ]
+  },
+  {
+    "Vegetable": "Garlic",
+    "Options": [
+      "Varuthu Araikurathu",
+      "Raw + Garlic + Thakkali",
+      "Raw + Garlic + Puli"
+    ]
+  },
+  {
+    "Vegetable": "Peerkankai",
+    "Options": [
+      "Simple Chutney"
+    ]
+  },
+  {
+    "Vegetable": "Coconut",
+    "Options": [
+      "Coconut Chutney + Green chilli",
+      "Coconut Chutney + Red chilli",
+      "Kuruma"
+    ]
+  },
+  {
+    "Vegetable": "Nothing",
+    "Options": [
+      "Podi",
+      "Machine Milagai Podi"
+    ]
+  }
+]

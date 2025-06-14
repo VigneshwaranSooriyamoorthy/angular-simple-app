@@ -1,17 +1,13 @@
-import {Component, HostListener} from '@angular/core';
-import {NgForOf} from '@angular/common';
+import { Component, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-simple-calculator',
-  imports: [
-    NgForOf
-  ],
   templateUrl: './simple-calculator.component.html',
-  styleUrl: './simple-calculator.component.scss'
+  styleUrl: './simple-calculator.component.scss',
 })
 export class SimpleCalculatorComponent {
   buttons = ['7', '8', '9', '+/-', '⌫', '4', '5', '6', '*', '/', '1', '2', '3', '-', '=', 'C', '0', '.', '+'];
-  operators = ['+', '-', '*', '/', '=']
+  operators = ['+', '-', '*', '/', '='];
   entry: string = '';
   result: string = '';
   value1: number = 0;
@@ -55,7 +51,7 @@ export class SimpleCalculatorComponent {
 
       // Check operator pressed multiple times, If so go with the last pressed operator
       if (this.operators.includes(<string>this.entry.at(-2))) {
-        this.entry = `${this.entry.slice(0, -2)} ${button} `
+        this.entry = `${this.entry.slice(0, -2)} ${button} `;
         this.currentOperator = button;
         return;
       }

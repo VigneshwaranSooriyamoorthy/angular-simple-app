@@ -11,6 +11,7 @@ import { map, shareReplay, timer } from 'rxjs';
   ],
   templateUrl: './digital-clock.component.html',
   styleUrl: './digital-clock.component.scss',
+  standalone: true,
 })
 export class DigitalClockComponent implements OnInit, OnDestroy {
 

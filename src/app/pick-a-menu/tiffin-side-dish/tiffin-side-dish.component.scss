@@ -1,0 +1,45 @@
+button {
+  margin-top: 1cqw;
+  font-size: 2cqw;
+  color: white;
+  background-color: #151b3f;
+  padding: 0.5cqw;
+  cursor: pointer;
+}
+
+.section-tiffin-side-dish {
+  display: flex;
+  flex-direction: column;
+  margin-top: 2cqw;
+  margin-left: 10%;
+  width: fit-content;
+  font-size: 2cqw;
+  padding: 1cqw;
+  border: 2px solid #151b3f;
+  border-radius: 1cqw;
+}
+
+.select-all-checkbox {
+  margin-top: 0.5cqw;
+  margin-right: 0.5cqw;
+  align-self: flex-end;
+}
+
+.tiffin-side-dish {
+  margin-top: 0.5cqw;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1cqw;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  margin-right: 0.5cqw;
+  cursor: pointer;
+}
+
+.section-tiffin-side-dish button {
+  align-self: center;
+  width: fit-content;
+}

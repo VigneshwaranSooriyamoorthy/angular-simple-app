@@ -39,12 +39,14 @@
     <div class="banner-footer"></div>
   </div>
   <div class="cards">
-    <div class="card" *ngFor="let card of cards">
-      <div class="card-top" style="background: url('CardBG.png')"></div>
-      <div class="card-icon">
-        <span class="material-icons">{{ card.icon }}</span>
+    @for (card of cards; track $index) {
+      <div class="card">
+        <div class="card-top" style="background: url('CardBG.png')"></div>
+        <div class="card-icon">
+          <span class="material-icons">{{ card.icon }}</span>
+        </div>
+        <p>{{ card.name }}</p>
       </div>
-      <p>{{ card.name }}</p>
-    </div>
+    }
   </div>
 </div>

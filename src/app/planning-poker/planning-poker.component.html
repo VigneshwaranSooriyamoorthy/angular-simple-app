@@ -1,0 +1,66 @@
+@if (userDetails) {
+  <div class="user-detail">
+    <div class="user-input-section">
+      <div class="field">
+        <label class="size-m">TEAM</label>
+        <select class="size-s" [(ngModel)]="currentTeam" (change)="updateCurrentTeamMembers()">
+          @for (team of teams; track team) {
+            <option class="option-teams size-s">{{ team }}</option>
+          }
+        </select>
+      </div>
+      <div class="field">
+        <label class="size-m">NAME</label>
+        <select class="size-s" [(ngModel)]="username">
+          @for (currentTeamMember of currentTeamMembers; track $index) {
+            <option class="option-teams size-s">{{ currentTeamMember }}</option>
+          }
+        </select>
+      </div>
+      @if (currentTeam !== '') {
+        <div class="size-xs field-checkbox">
+          <input class="checkbox" type="checkbox" id="ScrumMaster" [(ngModel)]="isScrumMaster"
+                 [disabled]="scrumMaster.includes(username)">
+          <label for="ScrumMaster">Check only if {{ scrumMaster }} is not available and you are the acting Scrum
+            master</label>
+        </div>
+      }
+      <div class="center">
+        <button class="button size-m" (click)="enterRoom()">ENTER</button>
+      </div>
+    </div>
+    <div class="instruction">
+      <span class="size-m uppercase">Instruction</span>
+      <ol>
+        @for (instruction of instructions; track $index) {
+          <li class="size-xs" [innerHtml]="instruction"></li>
+        }
+      </ol>
+    </div>
+  </div>
+} @else {
+  <div class="estimation-board">
+    <span class="welcome-message size-s">Hello {{ username }}, welcome to Team {{ currentTeam }}
+      story estimation board.</span>
+    <div class="sp-cards">
+      @for (storyPoint of storyPoints; track $index) {
+        <div class="sp-card size-s" (click)="updateStoryPoint(storyPoint)">{{ storyPoint }}</div>
+      }
+    </div>
+    @if (isScrumMaster) {
+      <div>
+        <button class="button size-xs" (click)="resetEstimations()">RESET</button>
+        <button class="button size-xs" (click)="revealEstimations()">REVEAL</button>
+        <h3 class="warning">* Press RESET before estimating a new story</h3>
+      </div>
+    }
+    <div class="estimations">
+      @for (estimation of estimations; track $index) {
+        <div class="estimation-card">
+          <span>{{ estimation.name }}</span>
+          <span>{{ isRevealEstimations ? estimation.estimation : '🎰' }}</span>
+        </div>
+      }
+    </div>
+  </div>
+}

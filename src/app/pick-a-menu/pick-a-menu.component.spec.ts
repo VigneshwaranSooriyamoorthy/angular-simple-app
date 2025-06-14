@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { DigitalClockComponent } from './digital-clock.component';
+import { PickAMenuComponent } from './pick-a-menu.component';
 
-describe('DigitalClockComponent', () => {
-  let component: DigitalClockComponent;
-  let fixture: ComponentFixture<DigitalClockComponent>;
+describe('PickAMenuComponent', () => {
+  let component: PickAMenuComponent;
+  let fixture: ComponentFixture<PickAMenuComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [DigitalClockComponent],
+      imports: [PickAMenuComponent],
     })
       .compileComponents();
 
-    fixture = TestBed.createComponent(DigitalClockComponent);
+    fixture = TestBed.createComponent(PickAMenuComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

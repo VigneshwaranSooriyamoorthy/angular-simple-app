@@ -1,0 +1,54 @@
+button {
+  margin-top: 1cqw;
+  font-size: 2cqw;
+  color: white;
+  background-color: #151b3f;
+  padding: 0.5cqw;
+  cursor: pointer;
+}
+
+button:hover {
+  color: #229844;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: 1cqw;
+}
+
+.title {
+  font-size: 2cqw;
+}
+
+.category {
+  font-size: 1.25cqw;
+  padding: 5px;
+  width: fit-content;
+}
+
+.selected-veggies {
+  font-size: 1.25cqw;
+}
+
+.chutney-suggestion-label {
+  font-size: 1.5cqw;
+}
+
+.chutney-suggestion-value {
+  font-size: 1.5cqw;
+  color: #229844;
+  font-weight: bold;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+}
+
+.reset,
+.new-suggestion {
+  font-size: 1.25cqw;
+  width: fit-content;
+  margin-right: 1cqw;
+}

@@ -1,0 +1,25 @@
+<div class="options">
+  <span class="title">Please select the category</span>
+  <select class="category" [(ngModel)]="requestedSuggestion" (change)="onRequestSuggestion()">
+    @for (menu of chooseWhat; track menu) {
+      <option>{{ menu }}</option>
+    }
+  </select>
+  @if (AvailableVeggiesForTiffinSideDish.length > 0) {
+    <span class="selected-veggies">
+      Selected available vegetables are "{{ AvailableVeggiesForTiffinSideDish.join(', ') }}"
+    </span>
+    <span class="chutney-suggestion-label">{{ tiffinSideDishSuggestion.Vegetable }} : <span
+      class="chutney-suggestion-value">{{ tiffinSideDishSuggestion.SideDish }}</span></span>
+    <div class="buttons">
+      <button class="reset" (click)="setCategory('')">Reset</button>
+      <button class="new-suggestion" (click)="computeTiffinSideDishSuggestion()">New Suggestion</button>
+    </div>
+  }
+</div>
+@if (isTiffinSideDish) {
+  <app-tiffin-side-dish
+    (availableVeggies)="AvailableVeggiesForTiffinSideDish=$event"
+    (closeTiffinSection)="tearDownTiffinSection($event)"
+  ></app-tiffin-side-dish>
+}

@@ -1,0 +1,124 @@
+// ------------------------------------- General -------------------------------------
+* {
+  color: #151b3f;
+}
+
+.size-xs {
+  font-size: 1.25cqw;
+}
+
+.size-s {
+  font-size: 2cqw;
+}
+
+.size-m {
+  font-size: 2.5cqw;
+}
+
+.uppercase {
+  text-transform: uppercase;
+}
+
+.center {
+  align-self: center;
+}
+
+.button {
+  padding: 0.5cqw 2cqw;
+  margin: 1.5cqw 1cqw;
+}
+
+h3 {
+  margin: 0 0 0 1cqw;
+}
+
+.warning {
+  color: red;
+}
+
+// ------------------------------------- User details -------------------------------------
+
+.user-detail {
+  display: grid;
+  grid-template-columns: 1fr 0.75fr;
+  gap: 7.5cqw;
+  margin: 5% 7.5%;
+}
+
+.user-input-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2cqw;
+}
+
+.field {
+  display: grid;
+  grid-template-columns: 0.45fr 1fr;
+}
+
+.field-checkbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5cqw;
+}
+
+.checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  margin-top: 2px;
+}
+
+// ------------------------------------- Estimation -------------------------------------
+
+.estimation-board {
+  display: flex;
+  flex-direction: column;
+}
+
+.welcome-message {
+  margin: 3cqh 0 1cqw 1cqw;
+}
+
+.sp-cards {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 1cqw;
+  justify-items: center;
+  margin-top: 1cqh;
+}
+
+.sp-card {
+  border: 3px solid #151b3f;
+  border-radius: 1cqw;
+  box-shadow: 5px 2px 10px 1px #aaaaaa;
+  height: 12.5vh;
+  width: 4cqw;
+  text-align: center;
+  line-height: 12.5vh; // Same as the height of the card
+}
+
+.sp-card:hover {
+  background-color: #fabb32;
+}
+
+.estimations {
+  margin-top: 3cqh;
+  display: flex;
+  flex-direction: row;
+}
+
+.estimation-card {
+  padding: 1cqw;
+  margin: 1cqw;
+  border: 3px solid #151b3f;
+  border-radius: 1cqw;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5cqw;
+  text-align: center;
+  font-size: 2cqw;
+  height: 10vh;
+  line-height: 5vh;
+}

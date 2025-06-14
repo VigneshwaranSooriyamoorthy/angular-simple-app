@@ -1,15 +1,14 @@
-import {Component} from '@angular/core';
-import {FormsModule} from '@angular/forms';
-import {NgIf} from '@angular/common';
+import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-flames',
   imports: [
     FormsModule,
-    NgIf
   ],
   templateUrl: './flames.component.html',
-  styleUrl: './flames.component.scss'
+  standalone: true,
+  styleUrl: './flames.component.scss',
 })
 export class FlamesComponent {
   firstPersonName: string = '';
@@ -41,7 +40,7 @@ export class FlamesComponent {
       name: 'SIBLINGS',
       image: 'flames/Siblings.png',
     },
-  }
+  };
 
   computeFlames() {
     let name1 = this.firstPersonName.replaceAll(/\W/gi, '').toLowerCase();
@@ -61,7 +60,7 @@ export class FlamesComponent {
     const diff_count = (name1 + name2).length;
     let match = Object.keys(this.flames).join('');
     for (let i = 0; i < 5; i++) {
-      let flamesFullList = match.repeat(Math.ceil(diff_count/match.length));
+      let flamesFullList = match.repeat(Math.ceil(diff_count / match.length));
       match = match.split(flamesFullList[diff_count - 1]).reverse().join('');
     }
     this.result = this.flames[match].name;

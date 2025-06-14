@@ -3,18 +3,23 @@
   grid-template-columns: repeat(5, 1fr);
   margin-top: 5cqw;
   margin-bottom: 10cqw;
+  row-gap: 2cqw;
 }
 
 .app {
   display: flex;
   flex-direction: column;
   align-items: center;
+  color: #151b3f;
 }
 
-.app a {
-  font-size: 10cqw;
+.app > a,
+.app > a > svg {
+  // Decides the size of Google icons
+  font-size: 8cqw;
   text-decoration: none;
-  color: #151b3f;
+  // Decides the size of Free icons
+  height: 8cqw;
   cursor: pointer;
 }
 
@@ -25,4 +30,8 @@
 
 .app > a:hover {
   color: #fabb32;
+}
+
+.app > a > svg:hover {
+  fill: #fabb32;
 }

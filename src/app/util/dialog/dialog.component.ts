@@ -1,5 +1,4 @@
-import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
-import {NgIf} from '@angular/common';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 export enum buttonType {
   ONLY_PRIMARY_BUTTON,
@@ -8,11 +7,9 @@ export enum buttonType {
 
 @Component({
   selector: 'app-dialog',
-  imports: [
-    NgIf
-  ],
   templateUrl: './dialog.component.html',
-  styleUrl: './dialog.component.scss'
+  standalone: true,
+  styleUrl: './dialog.component.scss',
 })
 export class DialogComponent implements OnInit {
 

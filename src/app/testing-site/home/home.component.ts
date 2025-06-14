@@ -1,39 +1,35 @@
 import { Component } from '@angular/core';
-import {NgForOf} from "@angular/common";
 
 @Component({
   selector: 'app-home',
-    imports: [
-        NgForOf
-    ],
   templateUrl: './home.component.html',
-  styleUrl: './home.component.scss'
+  styleUrl: './home.component.scss',
 })
 export class HomeComponent {
   cards = [
     {
       'name': 'Elements',
-      'icon': 'menu'
+      'icon': 'menu',
     },
     {
       'name': 'Forms',
-      'icon': 'list_alt'
+      'icon': 'list_alt',
     },
     {
       'name': 'Alerts, Frame & Windows',
-      'icon': 'tab'
+      'icon': 'tab',
     },
     {
       'name': 'Widgets',
-      'icon': 'widgets'
+      'icon': 'widgets',
     },
     {
       'name': 'Interactions',
-      'icon': 'repeat_on'
+      'icon': 'repeat_on',
     },
     {
       'name': 'Book Store Application',
-      'icon': 'library_books'
-    }
-  ]
+      'icon': 'library_books',
+    },
+  ];
 }

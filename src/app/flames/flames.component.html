@@ -13,8 +13,10 @@
       <button class="button-flames" type="button" (click)="resetFields()">CLEAR</button>
     </div>
   </div>
-  <div *ngIf="result" class="output-area">
-    <span>{{ result }}</span>
-    <img src="{{ resultImg }}" alt="{{ result }}">
-  </div>
+  @if (result) {
+    <div class="output-area">
+      <span>{{ result }}</span>
+      <img src="{{ resultImg }}" alt="{{ result }}">
+    </div>
+  }
 </div>

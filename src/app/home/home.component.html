@@ -1,8 +1,19 @@
 <div class="apps">
-  <div class="app" *ngFor="let app of apps">
-    <a title="{{ app.name }}" class="material-icons" (click)="openApp(app.name, app.url)">{{ app.icon }}</a>
-    <span>{{ app.name }}</span>
-  </div>
+  @for (app of apps; track app) {
+    <div class="app">
+      @if (app.icon === "free-icons") {
+        <!-- Free Icons (https://free-icons.github.io/free-icons/) -->
+        <a title="{{ app.name }}" class="svg-icon" (click)="openApp(app.name, app.url)">
+          <svg xmlns="http://www.w3.org/2000/svg" height="1em" fill="#151b3f" viewBox="0 0 512 512">
+            <path [attr.d]="app['path.d']" />
+          </svg>
+        </a>
+      } @else {
+        <a title="{{ app.name }}" class="material-icons" (click)="openApp(app.name, app.url)">{{ app.icon }}</a>
+      }
+      <span>{{ app.name }}</span>
+    </div>
+  }
 </div>
 @if (openDialog && joke) {
   <app-dialog [message]="joke"
