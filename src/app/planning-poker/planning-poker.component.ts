@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { filter, mergeMap, take, timer } from 'rxjs';
-import { Router } from '@angular/router';
 
 interface members {
   teamName: string;
@@ -9,14 +8,15 @@ interface members {
 }
 
 interface Estimation {
-  name: string;
-  estimation: string;
+  estimatedBy: string;
+  storyPoint: string;
 }
 
 interface data {
   members: members[],
   scrumMaster: string,
   estimations: Estimation[];
+  ticketName: string;
   revealEstimations: boolean;
 }
 
@@ -47,12 +47,11 @@ export class PlanningPokerComponent implements OnInit {
   isScrumMaster: boolean = false;
   userDetails: boolean = true;
   estimations: Estimation[] = [];
+  ticketName: string = '';
   isRevealEstimations: boolean = false;
 
-  constructor(private router: Router) {}
-
   ngOnInit() {
-    if (this.router.url.includes('github.io')) {
+    if (window.location.href.includes('github.io')) {
       document.getElementsByTagName('header')[0].remove();
     }
     fetch(this.blob)
@@ -98,7 +97,19 @@ export class PlanningPokerComponent implements OnInit {
         filter((response: data) => {
           this.isRevealEstimations = response.revealEstimations;
           this.estimations = response.estimations;
-          return this.isScrumMaster && this.isRevealEstimations;
+          this.ticketName = response.ticketName;
+          if (this.ticketName === '') {
+            this.userDetails = true;
+          }
+          // return true will stop polling
+          if (this.isScrumMaster) {
+            return this.isRevealEstimations || this.ticketName === '';
+          } else {
+            if (this.ticketName === '') {
+              alert("Scrum master is creating a session for new ticket. Please try again.");
+            }
+            return this.ticketName === '';
+          }
         }),
         take(1),
       ).subscribe(() => {
@@ -114,9 +125,9 @@ export class PlanningPokerComponent implements OnInit {
       alert('Please enter a username');
       return;
     }
-
-    if (this.username === this.scrumMaster) {
-      this.isScrumMaster = true;
+    if (this.isScrumMaster && this.ticketName === '') {
+      alert('Please enter a ticket name');
+      return;
     }
 
     // Hide the estimations until SM reveal
@@ -129,11 +140,15 @@ export class PlanningPokerComponent implements OnInit {
     this.getBlob()
       .then((response: data) => {
         response.scrumMaster = this.isScrumMaster ? this.username : '';
+        response.revealEstimations = false;
+        if (this.isScrumMaster) {
+          response.ticketName = this.ticketName;
+        }
         this.putBlob(response).then();
-      });
-
-    // Poll for estimation
-    this.pollBlob();
+      }).then(() => {
+      // Poll for estimation
+      this.pollBlob();
+    });
   }
 
   updateStoryPoint(selectedStoryPoint: string) {
@@ -143,11 +158,11 @@ export class PlanningPokerComponent implements OnInit {
         // Remove the estimation already made by the user
         let revisedEstimation: Estimation[] = data
           .estimations
-          .filter((estimation: Estimation) => estimation.name !== this.username);
+          .filter((estimation: Estimation) => estimation.estimatedBy !== this.username);
         // Preserve the Team's estimation
         revisedEstimation.push({
-          name: this.username,
-          estimation: `${selectedStoryPoint}`,
+          estimatedBy: this.username,
+          storyPoint: `${selectedStoryPoint}`,
         });
         // Push the new estimation from the user
         data.estimations = revisedEstimation;
@@ -159,11 +174,11 @@ export class PlanningPokerComponent implements OnInit {
 
   resetEstimations() {
     this.getBlob()
-      .then(data => {
+      .then((response: data) => {
         this.estimations = [];
-        data.estimations = [];
-        data.revealEstimations = false;
-        this.putBlob(data).then();
+        response.estimations = [];
+        response.revealEstimations = false;
+        this.putBlob(response).then();
       }).then(() => {
       // Poll for estimation
       this.pollBlob();
@@ -172,9 +187,21 @@ export class PlanningPokerComponent implements OnInit {
 
   revealEstimations() {
     this.getBlob()
-      .then(data => {
-        data.revealEstimations = true;
-        this.putBlob(data).then();
+      .then((response: data) => {
+        response.revealEstimations = true;
+        this.putBlob(response).then();
       });
+  }
+
+  newEstimation() {
+    this.getBlob()
+      .then((response: data) => {
+        response.ticketName = '';
+        this.estimations = [];
+        response.estimations = [];
+        this.putBlob(response).then();
+      });
+    this.userDetails = true;
+    this.ticketName = '';
   }
 }

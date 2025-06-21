@@ -1,0 +1,38 @@
+{
+  "members": [
+    {
+      "teamName": ""
+    },
+    {
+      "teamName": "Neptune",
+      "teamMembers": [
+        "",
+        "Ruben (SM)",
+        "Bart",
+        "Ahmed",
+        "Cauvery",
+        "Christos",
+        "Mohammad",
+        "Sandra",
+        "Teun",
+        "Tijs",
+        "Vigneshwaran"
+      ]
+    },
+    {
+      "teamName": "Triton",
+      "teamMembers": [
+        "",
+        "Ruben (SM)",
+        "Bart",
+        "Aldina",
+        "Alexandra",
+        "Bogdan"
+      ]
+    }
+  ],
+  "scrumMaster": "Ruben (SM)",
+  "estimations": [],
+  "ticketName": "",
+  "revealEstimations": false
+}
