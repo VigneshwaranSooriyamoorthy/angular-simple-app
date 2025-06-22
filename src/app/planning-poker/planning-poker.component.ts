@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { filter, mergeMap, take, timer } from 'rxjs';
+import { buttonType, DialogComponent } from '../util/dialog/dialog.component';
 
 interface members {
   teamName: string;
@@ -24,6 +25,7 @@ interface data {
   selector: 'app-planning-poker',
   imports: [
     FormsModule,
+    DialogComponent,
   ],
   templateUrl: './planning-poker.component.html',
   styleUrl: './planning-poker.component.scss',
@@ -43,11 +45,14 @@ export class PlanningPokerComponent implements OnInit {
   currentTeamMembers: string[] = [];
   currentTeam: string = '';
   username: string = '';
+  isNameDisabled: boolean = true;
   scrumMaster: string = '';
   isScrumMaster: boolean = false;
   userDetails: boolean = true;
   estimations: Estimation[] = [];
   ticketName: string = '';
+  protected readonly buttonType = buttonType;
+  openDialog: boolean = false;
   isRevealEstimations: boolean = false;
 
   ngOnInit() {
@@ -66,6 +71,7 @@ export class PlanningPokerComponent implements OnInit {
     this.currentTeamMembers = this.members
       .filter(member => member.teamName === this.currentTeam)[0]
       .teamMembers;
+    this.isNameDisabled = false;
     this.scrumMaster = this.members
       .filter(team => team.teamName === this.currentTeam)[0]
       .teamMembers
@@ -103,10 +109,10 @@ export class PlanningPokerComponent implements OnInit {
           }
           // return true will stop polling
           if (this.isScrumMaster) {
-            return this.isRevealEstimations || this.ticketName === '';
+            return response.revealEstimations || response.ticketName === '';
           } else {
             if (this.ticketName === '') {
-              alert("Scrum master is creating a session for new ticket. Please try again.");
+              this.openDialog = true;
             }
             return this.ticketName === '';
           }
@@ -203,5 +209,14 @@ export class PlanningPokerComponent implements OnInit {
       });
     this.userDetails = true;
     this.ticketName = '';
+  }
+
+  processDialogEvent($event: boolean) {
+    // Dialog emit false for the primary button click, as the functionality is expected to close the dialog
+    if ($event) {
+      alert('Something went wrong, try again after sometime');
+    } else {
+      this.openDialog = false;
+    }
   }
 }

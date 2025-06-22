@@ -3,7 +3,7 @@
     <span [innerHTML]="message"></span>
     @if (onlyPrimaryButton) {
       <div class="only-primary-button">
-        <button type="button" (click)="sender.emit(false)">CLOSE</button>
+        <button type="button" (click)="sender.emit(false)">{{ primaryButtonVisibleText }}</button>
       </div>
     }
     @if (primarySecondaryButton) {

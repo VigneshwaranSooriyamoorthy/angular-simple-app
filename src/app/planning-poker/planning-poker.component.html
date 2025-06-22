@@ -12,7 +12,7 @@
       </div>
       <div class="field">
         <label class="size-m">NAME</label>
-        <select class="size-s" [(ngModel)]="username"
+        <select class="size-s" [(ngModel)]="username" [disabled]="isNameDisabled"
                 (change)="isScrumMaster = scrumMaster === username">
           @for (currentTeamMember of currentTeamMembers; track $index) {
             <option class="option-teams size-s">{{ currentTeamMember }}</option>
@@ -36,6 +36,13 @@
       <div class="center">
         <button class="button size-m" (click)="enterRoom()">ENTER</button>
       </div>
+      @if (openDialog) {
+        <app-dialog [message]="'Your scrum master is creating a room for new ticket. Please try again.'"
+                    [buttonType]="buttonType.ONLY_PRIMARY_BUTTON"
+                    [primaryButtonVisibleText]="'Okay, Understand 🤖'"
+                    (sender)="processDialogEvent($event)">
+        </app-dialog>
+      }
     </div>
     <div class="instruction">
       <span class="size-m uppercase">Instruction</span>
