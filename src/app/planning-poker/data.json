@@ -16,7 +16,7 @@
         "Sandra",
         "Teun",
         "Tijs",
-        "Vigneshwaran"
+        "Vignesh"
       ]
     },
     {
@@ -26,13 +26,18 @@
         "Ruben (SM)",
         "Bart",
         "Aldina",
-        "Alexandra",
-        "Bogdan"
+        "Aleksandra",
+        "Bogdan",
+        "Dan",
+        "Mohammad",
+        "Nataša"
       ]
     }
   ],
   "scrumMaster": "Ruben (SM)",
   "estimations": [],
   "ticketName": "",
-  "revealEstimations": false
+  "revealEstimations": false,
+  "disableSP": false,
+  "nearestSPAboveEstAvg": 0
 }

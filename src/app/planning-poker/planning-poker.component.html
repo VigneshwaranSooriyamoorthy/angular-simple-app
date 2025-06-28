@@ -60,7 +60,7 @@
       <span class="general-message size-s">Current request is to estimate the ticket <b>{{ ticketName }}</b></span>
       <div class="sp-cards">
         @for (storyPoint of storyPoints; track $index) {
-          <div class="sp-card size-s" [class.disabled]="isDisableSP"
+          <div class="sp-card size-s" [class.disabled]="isRevealEstimations"
                (click)="updateStoryPoint(storyPoint)">{{ storyPoint }}
           </div>
         }

@@ -21,7 +21,6 @@ interface data {
   ticketName: string;
   revealEstimations: boolean;
   nearestSPAboveEstAvg: number;
-  disableSP: boolean;
 }
 
 @Component({
@@ -37,7 +36,6 @@ export class PlanningPokerComponent implements OnInit {
 
   blob: string = 'https://jsonblob.com/api/jsonBlob/1376627307548172288';
   storyPoints: string[] = ['1', '2', '3', '5', '8', '13', '21', '34', '☕️', '🤷'];
-  isDisableSP: boolean = false;
   instructions: string[] = [
     'Select your <b>TEAM</b>, based on which, <b>NAME</b> will be updated',
     'Select your <b>NAME</b>',
@@ -109,7 +107,6 @@ export class PlanningPokerComponent implements OnInit {
           this.isRevealEstimations = response.revealEstimations;
           this.estimations = response.estimations;
           this.nearestStoryPointAboveAverage = response.nearestSPAboveEstAvg;
-          this.isDisableSP = response.disableSP;
           this.ticketName = response.ticketName;
           if (this.ticketName === '') {
             this.userDetails = true;
@@ -156,7 +153,6 @@ export class PlanningPokerComponent implements OnInit {
         response.revealEstimations = false;
         if (this.isScrumMaster) {
           response.ticketName = this.ticketName;
-          response.disableSP = false;
         }
         this.putBlob(response).then();
       }).then(() => {
@@ -200,7 +196,6 @@ export class PlanningPokerComponent implements OnInit {
   }
 
   revealEstimations() {
-    this.isDisableSP = true;
     this.getBlob()
       .then((response: data) => {
         // Nearest Fibonacci number for the average estimation
@@ -222,7 +217,6 @@ export class PlanningPokerComponent implements OnInit {
         });
         response.revealEstimations = true;
         response.nearestSPAboveEstAvg = this.nearestStoryPointAboveAverage;
-        response.disableSP = true;
         this.putBlob(response).then();
       });
   }
@@ -233,7 +227,6 @@ export class PlanningPokerComponent implements OnInit {
         response.ticketName = '';
         this.estimations = [];
         response.estimations = [];
-        response.disableSP = false;
         this.putBlob(response).then();
       });
     this.userDetails = true;
