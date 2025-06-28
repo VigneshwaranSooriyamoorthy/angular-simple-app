@@ -25,7 +25,7 @@
 
 .button {
   padding: 0.5cqw 2cqw;
-  margin: 1.5cqw 1cqw;
+  margin: 0.5cqw 1cqw 1cqw;
 }
 
 h3 {
@@ -34,6 +34,12 @@ h3 {
 
 .warning {
   color: red;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.5;
+  background-color: lightgray;
 }
 
 // ------------------------------------- User details -------------------------------------
@@ -81,18 +87,22 @@ h3 {
   margin: 3cqh 0 1cqw 1cqw;
 }
 
+.general-message {
+  margin: 0 0 1cqw 1cqw;
+}
+
 .sp-cards {
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 1cqw;
   justify-items: center;
-  margin-top: 1cqh;
+  margin: 1cqh 0 2cqh 0;
 }
 
 .sp-card {
   border: 3px solid #151b3f;
   border-radius: 1cqw;
-  box-shadow: 5px 2px 10px 1px #aaaaaa;
+  box-shadow: 3px 2px 3px 1px #aaaaaa;
   height: 12.5vh;
   width: 4cqw;
   text-align: center;
@@ -101,10 +111,11 @@ h3 {
 
 .sp-card:hover {
   background-color: #fabb32;
+  cursor: pointer;
 }
 
 .estimations {
-  margin-top: 3cqh;
+  margin-top: 1cqh;
   display: flex;
   flex-direction: row;
 }

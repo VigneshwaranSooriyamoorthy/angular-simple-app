@@ -56,11 +56,13 @@
 } @else {
   @if (ticketName !== '') {
     <div class="estimation-board">
-    <span class="welcome-message size-s">Hello {{ username }}, welcome to Team {{ currentTeam }}
-      story estimation board.</span>
+      <span class="welcome-message size-s">Hello {{ username }}, welcome to Team {{ currentTeam }} story estimation board.</span>
+      <span class="general-message size-s">Current request is to estimate the ticket <b>{{ ticketName }}</b></span>
       <div class="sp-cards">
         @for (storyPoint of storyPoints; track $index) {
-          <div class="sp-card size-s" (click)="updateStoryPoint(storyPoint)">{{ storyPoint }}</div>
+          <div class="sp-card size-s" [class.disabled]="isDisableSP"
+               (click)="updateStoryPoint(storyPoint)">{{ storyPoint }}
+          </div>
         }
       </div>
       @if (isScrumMaster) {
@@ -69,6 +71,9 @@
           <button class="button size-xs" (click)="revealEstimations()">REVEAL</button>
           <button class="button size-xs" (click)="newEstimation()">NEW TICKET</button>
         </div>
+      }
+      @if (isRevealEstimations) {
+        <span class="general-message size-s">Nearest story point above the average is <b>{{ nearestStoryPointAboveAverage }}</b></span>
       }
       <div class="estimations">
         @for (estimation of estimations; track $index) {
