@@ -1,0 +1,51 @@
+<div class="main-container">
+  <span class="size-s">Average Monthly Balance Calculator</span>
+  <div class="month-year">
+    <div class="flex-field">
+      <span class="size-xs">Month</span>
+      <select class="size-xs" style="width: fit-content" [(ngModel)]="selectedMonth">
+        @for (month of MONTHS; track $index) {
+          <option class="size-xs">{{ month }}</option>
+        }
+      </select>
+    </div>
+    <div class="flex-field">
+      <span class="size-xs">Year</span>
+      <input type="number" class="size-xs" id="year" maxlength="4" [(ngModel)]="chosenYear">
+    </div>
+    <div class="flex-field">
+      <label class="size-xs" for="amb">AMB required</label>
+      <input class="size-xs" type="number" id="amb" [(ngModel)]="amb">
+    </div>
+  </div>
+  <button class="size-xs" style="width: fit-content; align-items: center" (click)="openCalendar()">CONTINUE</button>
+  @if (isOpenCalendar) {
+    <div class="input-container">
+      <div class="calendar">
+        @for (day of days; track day) {
+          <div class="day size-xs" [id]="'calender-day-'+ day" (mouseenter)="toggleOnHover($event.target)">
+            <div style="display: flex">
+              <input [id]="'day-'+ day" type="checkbox">
+              <span>{{ day }}</span>
+            </div>
+            <span name="closingAmount"></span>
+          </div>
+        }
+      </div>
+      <div class="amount-details">
+        <div class="grid-field">
+          <label class="size-xs" for="closingBalance">Day closing balance</label>
+          <input class="size-xs" type="number" id="closingBalance" [(ngModel)]="closingBalance">
+        </div>
+        <button class="button blue-button" style="align-self: center" (click)="setDayClosureBalance()">SUBMIT</button>
+        <div>
+          <button class="button blue-button">CALCULATE</button>
+          <button class="button" (click)="reset()">RESET</button>
+        </div>
+      </div>
+      <div>
+
+      </div>
+    </div>
+  }
+</div>

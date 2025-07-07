@@ -1,7 +1,7 @@
 .apps {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
-  margin-top: 5cqw;
+  margin-top: 4cqw;
   margin-bottom: 10cqw;
   row-gap: 2cqw;
 }
@@ -16,11 +16,14 @@
 .app > a,
 .app > a > svg {
   // Decides the size of Google icons
-  font-size: 8cqw;
+  font-size: 7.5cqw;
   text-decoration: none;
   // Decides the size of Free icons
   height: 8cqw;
+  // General
   cursor: pointer;
+  fill: #151b3f;
+  text-align: center;
 }
 
 .app span {

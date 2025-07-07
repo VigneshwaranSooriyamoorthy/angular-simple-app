@@ -6,6 +6,7 @@ import { FlamesComponent } from './flames/flames.component';
 import { DigitalClockComponent } from './digital-clock/digital-clock.component';
 import { PlanningPokerComponent } from './planning-poker/planning-poker.component';
 import { BuildInProgressComponent } from './util/build-in-progress/build-in-progress.component';
+import { AverageMonthlyBalanceComponent } from './average-monthly-balance/average-monthly-balance.component';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -15,4 +16,5 @@ export const routes: Routes = [
   { path: 'digital-clock', component: DigitalClockComponent },
   { path: 'pick-a-menu', component: BuildInProgressComponent },
   { path: 'planning-poker', component: PlanningPokerComponent },
+  { path: 'average-monthly-balance', component: AverageMonthlyBalanceComponent },
 ];
