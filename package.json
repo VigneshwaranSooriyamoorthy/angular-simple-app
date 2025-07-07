@@ -9,7 +9,7 @@
     "test": "ng test",
     "serve:ssr:angular-simple-app": "node dist/angular-simple-app/server/server.mjs",
     "ghpages-deploy": "ng deploy --base-href=/angular-simple-app/",
-    "test-push": "tmp"
+    "test-push": "tmp1"
   },
   "private": true,
   "dependencies": {
