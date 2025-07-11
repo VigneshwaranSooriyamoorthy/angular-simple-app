@@ -16,7 +16,6 @@ export const getSumOfArrayItems = (array: number[]) => {
   return array.reduce((acc, num) => acc + num, 0);
 };
 
-export const getAverageOfArrayItems = (array: number[], toFixed = 2) => {
-  console.log(array);
-  return Number((getSumOfArrayItems(array) / array.length).toFixed(toFixed));
+export const getAverageOfArrayItems = (array: number[]) => {
+  return getSumOfArrayItems(array) / array.length;
 };
