@@ -4,7 +4,7 @@ import { filter, mergeMap, take, timer } from 'rxjs';
 import { buttonType, DialogComponent } from '../util/dialog/dialog.component';
 import { getAverageOfArrayItems } from '../../../public/util/ArrayUtil';
 
-interface members {
+interface Members {
   teamName: string;
   teamMembers: string[];
 }
@@ -15,7 +15,7 @@ interface Estimation {
 }
 
 interface data {
-  members: members[],
+  members: Members[],
   scrumMaster: string,
   estimations: Estimation[];
   ticketName: string;
@@ -43,7 +43,7 @@ export class PlanningPokerComponent implements OnInit {
     'Press <b>ENTER</b>',
   ];
   teams: string[] = [];
-  members: members[] = [];
+  members: Members[] = [];
   currentTeamMembers: string[] = [];
   currentTeam: string = '';
   username: string = '';
@@ -66,7 +66,7 @@ export class PlanningPokerComponent implements OnInit {
       .then(res => res.json())
       .then((response: data) => {
         this.members = response.members;
-        response.members.map(member => this.teams.push(member.teamName));
+        response.members.forEach(member => this.teams.push(member.teamName));
       });
   }
 
@@ -152,6 +152,11 @@ export class PlanningPokerComponent implements OnInit {
         response.scrumMaster = this.isScrumMaster ? this.username : '';
         response.revealEstimations = false;
         if (this.isScrumMaster) {
+          if (this.ticketName !== response.ticketName) {
+            this.estimations = [];
+            response.estimations = [];
+            response.revealEstimations = false;
+          }
           response.ticketName = this.ticketName;
         }
         this.putBlob(response).then();

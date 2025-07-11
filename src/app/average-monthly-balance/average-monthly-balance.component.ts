@@ -1,6 +1,6 @@
 import { Component, HostListener } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { getNaturalNumbers } from '../../../public/util/ArrayUtil';
+import { getAverageOfArrayItems, getNaturalNumbers } from '../../../public/util/ArrayUtil';
 import { getDaysInMonth, MONTHS } from '../../../public/util/DateTimeUtil';
 
 interface Day {
@@ -18,15 +18,18 @@ interface Day {
   styleUrl: './average-monthly-balance.component.scss',
 })
 export class AverageMonthlyBalanceComponent {
+  protected readonly MONTHS = MONTHS;
+  isNewCalculation: boolean = true;
   date: Date = new Date();
   selectedMonth: string = MONTHS[this.date.getMonth()];
   chosenYear: number = this.date.getUTCFullYear();
   isOpenCalendar: boolean = false;
   days: number[] = [];
   daysClosingBalance: Day[] = [];
-  amb: string = '';
+  amb: string = '10000';
   closingBalance: string = '';
   isCtrlPressed: boolean = false;
+  currentAverageMonthlyBalance: number = 0;
 
   @HostListener('window:keydown', ['$event'])
   onKeyDown(event: KeyboardEvent) {
@@ -44,6 +47,7 @@ export class AverageMonthlyBalanceComponent {
 
   openCalendar() {
     this.days = getNaturalNumbers(getDaysInMonth(this.chosenYear, MONTHS.indexOf(this.selectedMonth) + 1));
+    this.isNewCalculation = false;
     this.isOpenCalendar = true;
   }
 
@@ -60,9 +64,9 @@ export class AverageMonthlyBalanceComponent {
     $calendarDays.forEach((calendarDay: Element) => {
       const $day = calendarDay.querySelector('div > span') as HTMLElement;
       const $cbDay = calendarDay.querySelector('[id^="day"]') as HTMLInputElement;
-      const $dayAmount = calendarDay.querySelector('span[name="closingAmount"]') as HTMLElement;
+      const $dayAmount = calendarDay.querySelector('#closingAmount') as HTMLElement;
+      const day: number = Number($day.innerText);
       if ($cbDay.checked) {
-        const day: number = Number($day.innerText);
         // Remove record if details already present in the array
         this.daysClosingBalance = this.daysClosingBalance.filter((item: Day) => item.day !== day);
         this.daysClosingBalance.push({
@@ -71,13 +75,21 @@ export class AverageMonthlyBalanceComponent {
         });
         $dayAmount.innerText = this.closingBalance;
         $cbDay.checked = false;
+      } else if (this.daysClosingBalance.find((item: Day) => item.day === day) === undefined) {
+        this.daysClosingBalance.push({
+          day: Number($day.innerText),
+          amount: 0,
+        });
       }
     });
+    this.closingBalance = '';
   }
 
   reset(): void {
     window.location.reload();
   }
 
-  protected readonly MONTHS = MONTHS;
+  computeAMB() {
+    this.currentAverageMonthlyBalance = getAverageOfArrayItems(this.daysClosingBalance.map(day => day.amount));
+  }
 }

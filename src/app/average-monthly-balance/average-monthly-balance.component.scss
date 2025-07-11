@@ -22,7 +22,7 @@
 
 .blue-button {
   background-color: #151b3f;
-  color: white;
+  color: #fabb32;
 }
 
 .grid-field {
@@ -36,10 +36,15 @@
 }
 
 .main-container {
-  margin: 2%;
+  margin: 1%;
   display: flex;
   flex-direction: column;
-  gap: 2cqw;
+  gap: 1cqw;
+}
+
+.page-header {
+  align-self: center;
+  margin: 2cqw;
 }
 
 .input-container {
@@ -51,6 +56,7 @@
 .month-year {
   display: flex;
   gap: 5cqw;
+  align-self: center;
 }
 
 .calendar {
@@ -67,8 +73,22 @@
   text-align: center;
 }
 
+#closingAmount {
+  color: #229844;
+  font-size: 1cqw;
+}
+
 .amount-details {
   display: flex;
   flex-direction: column;
   gap: 1cqw;
+}
+
+.result {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  b {
+    color: #229844;
+  }
 }
