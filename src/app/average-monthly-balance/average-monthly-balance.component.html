@@ -1,5 +1,5 @@
 <div class="main-container">
-  <span class="size-s page-header">Average Monthly Balance Calculator</span>
+  <span class="size-m page-header">Average Monthly Balance Calculator</span>
   @if (isNewCalculation) {
     <div class="month-year">
       <div class="flex-field">
@@ -23,30 +23,35 @@
   }
   @if (isOpenCalendar) {
     <div class="input-container">
-      <div class="calendar">
-        @for (day of days; track day) {
-          <div class="day size-xs" [id]="'calender-day-'+ day" (mouseenter)="toggleOnHover($event.target)">
-            <div style="display: flex">
-              <input [id]="'day-'+ day" type="checkbox">
-              <span>{{ day }}</span>
+      <div style="display: flex; flex-direction: column">
+        <div class="calendar">
+          @for (day of days; track day) {
+            <div class="day size-xs" [id]="'calender-day-'+ day" (mouseenter)="toggleOnHover($event.target)">
+              <div style="display: flex">
+                <input [id]="'day-'+ day" type="checkbox">
+                <span>{{ day }}</span>
+              </div>
+              <span class="size-xxs green" id="closingAmount"></span>
             </div>
-            <span id="closingAmount"></span>
-          </div>
-        }
+          }
+        </div>
+        <span class="size-xxs green margin-1">* To select multiple days, press (ctrl) and hover over the days</span>
       </div>
       <div class="amount-details">
-        <div class="grid-field">
-          <label class="size-xs" for="closingBalance">Day closing balance</label>
-          <input class="size-xs" type="number" id="closingBalance" [(ngModel)]="closingBalance">
+        <div class="amount-details-input">
+          <div class="grid-field">
+            <label class="size-xs" for="closingBalance">Day closing balance</label>
+            <input class="size-xs" type="number" id="closingBalance" [(ngModel)]="closingBalance">
+          </div>
+          <button class="button blue-button" style="align-self: center" (click)="setDayClosureBalance()">SUBMIT</button>
         </div>
-        <button class="button blue-button" style="align-self: center" (click)="setDayClosureBalance()">SUBMIT</button>
-        <div style="align-self: center">
+        <div style="text-align: center; margin: 1cqw">
           <button class="button blue-button" (click)="computeAMB()">CALCULATE</button>
           <button class="button" (click)="reset()">RESET</button>
         </div>
       </div>
       <div class="result">
-        <span>Current AMB is</span>
+        <span class="size-s">Current AMB is</span>
         <b class="size-m">{{ currentAverageMonthlyBalance }}</b>
       </div>
     </div>

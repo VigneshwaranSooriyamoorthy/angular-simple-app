@@ -2,6 +2,10 @@
   color: #151b3f;
 }
 
+.size-xxs {
+  font-size: 1cqw;
+}
+
 .size-xs {
   font-size: 1.25cqw;
 }
@@ -11,7 +15,15 @@
 }
 
 .size-m {
-  font-size: 2.5cqw;
+  font-size: 3cqw;
+}
+
+.green {
+  color: #229844;
+}
+
+.margin-1 {
+  margin: 1cqw;
 }
 
 .button {
@@ -73,15 +85,13 @@
   text-align: center;
 }
 
-#closingAmount {
-  color: #229844;
-  font-size: 1cqw;
-}
-
-.amount-details {
+.amount-details-input {
   display: flex;
   flex-direction: column;
   gap: 1cqw;
+  padding: 1.5cqw 1.5cqw 0.5cqw 1.5cqw;
+  border-radius: 1cqw;
+  background-color: #f5f5f5;
 }
 
 .result {
