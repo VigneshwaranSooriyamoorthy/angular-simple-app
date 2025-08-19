@@ -180,7 +180,7 @@ export class PlanningPokerComponent implements OnInit {
         // Preserve the Team's estimation
         revisedEstimation.push({
           estimatedBy: this.username,
-          storyPoint: `${selectedStoryPoint}`,
+          storyPoint: `${' '.repeat(Number(selectedStoryPoint))}`,
         });
         // Push the new estimation from the user
         data.estimations = revisedEstimation;
@@ -212,11 +212,11 @@ export class PlanningPokerComponent implements OnInit {
             .estimations
             .map(
               estimation =>
-                isNaN(Number(estimation.storyPoint)) ? 0 : Number(estimation.storyPoint),
+                isNaN(Number(estimation.storyPoint)) ? 0 : estimation.storyPoint.length,
             ),
         );
         this.storyPoints.some((storyPoint: string) => {
-          const numStoryPoint = Number(storyPoint);
+          const numStoryPoint: number = Number(storyPoint);
           if (numStoryPoint >= estimationAverage) {
             this.nearestStoryPointAboveAverage = numStoryPoint;
             return true;
@@ -241,7 +241,7 @@ export class PlanningPokerComponent implements OnInit {
     this.ticketName = '';
   }
 
-  processDialogEvent($event: boolean) {
+  processDialogEvent($event: boolean): void {
     // Dialog emit false for the primary button click, as the functionality is expected to close the dialog
     if ($event) {
       alert('Something went wrong, try again after sometime');

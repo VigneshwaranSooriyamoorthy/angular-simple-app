@@ -1,0 +1,70 @@
+* {
+  color: #151b3f;
+}
+
+.size-xxs {
+  font-size: 1cqw;
+}
+
+.size-xs {
+  font-size: 1.25cqw;
+}
+
+.size-s {
+  font-size: 2cqw;
+}
+
+.size-m {
+  font-size: 3cqw;
+}
+
+.margin {
+  margin: 2cqw auto 2cqw 1cqw;
+}
+
+.border {
+  border: 1px black solid;
+}
+
+.padding-xxs {
+  padding: 0.25cqw;
+}
+
+.padding-xs {
+  padding: 0.5cqw;
+}
+
+.padding-s {
+  padding: 1cqw;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: row;
+  gap: 1cqw;
+  position: relative;
+}
+
+.input-container > select {
+  font-size: 1.5cqw;
+}
+
+select {
+  min-width: 5cqw;
+}
+
+.output-container > div {
+  display: flex;
+  flex-direction: row;
+  gap: 1cqw;
+}
+
+table > tr > * {
+  border: 1px solid black;
+  width: 5cqw;
+  overflow: hidden;
+}
+
+th {
+  background-color: #f5f5f5;
+}

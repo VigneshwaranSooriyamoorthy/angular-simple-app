@@ -1,0 +1,48 @@
+<div class="input-container margin">
+  <select id="select-food" (mousedown)="updateSize($event)" (change)="get_nutrition_values($event)" (blur)="resetSize($event)">
+    @for (food_item of foodItems; track $index) {
+      <option>{{ food_item }}</option>
+    }
+  </select>
+  <select [(ngModel)]="selectedUnit" (change)="updateUnitValues()">
+    @for (unit of units; track $index) {
+      <option>{{ unit.name }}</option>
+    }
+  </select>
+  <select [(ngModel)]="selectedQuantity">
+    @for (value of valuesForSelectedUnit; track $index) {
+      <option>{{ value }}</option>
+    }
+  </select>
+  <button class="size-xs" (click)="updateTracker()">ADD</button>
+</div>
+<div class="output-container margin">
+  <span class="size-s">Nutritional value</span>
+  @if(nutritionalValues) {
+    <div class="size-xs">
+      <span><b>Calories:</b> {{ nutritionalValues.calories }}</span>
+      <span><b>Carbohydrates:</b> {{ nutritionalValues.carbohydrates }}</span>
+      <span><b>Protein:</b> {{ nutritionalValues.protein }}</span>
+      <span><b>Fat:</b> {{ nutritionalValues.fat }}</span>
+      <span><b>Fiber:</b> {{ nutritionalValues.fiber }}</span>
+    </div>
+  }
+</div>
+<table class="margin border">
+  <tr class="size-xs">
+    <th class="padding-xs">Calories</th>
+    <th class="padding-xs">Carbohydrates</th>
+    <th class="padding-xs">Protein</th>
+    <th class="padding-xs">Fat</th>
+    <th class="padding-xs">Fiber</th>
+  </tr>
+  @for (nutritionValue of overallNutritionalValues; track $index) {
+    <tr>
+      <td class="padding-xxs">{{ nutritionValue.calories }}</td>
+      <td class="padding-xxs">{{ nutritionValue.carbohydrates }}</td>
+      <td class="padding-xxs">{{ nutritionValue.protein }}</td>
+      <td class="padding-xxs">{{ nutritionValue.fat }}</td>
+      <td class="padding-xxs">{{ nutritionValue.fiber }}</td>
+    </tr>
+  }
+</table>

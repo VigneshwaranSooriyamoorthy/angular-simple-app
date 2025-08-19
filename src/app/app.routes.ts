@@ -17,4 +17,5 @@ export const routes: Routes = [
   { path: 'pick-a-menu', component: BuildInProgressComponent },
   { path: 'planning-poker', component: PlanningPokerComponent },
   { path: 'average-monthly-balance', component: AverageMonthlyBalanceComponent },
+  { path: 'nutrition-calculator', component: BuildInProgressComponent },
 ];

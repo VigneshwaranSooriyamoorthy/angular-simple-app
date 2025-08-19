@@ -65,7 +65,7 @@
           </div>
         }
       </div>
-      <span class="general-message size-xs">Member(s) yet to add an estimation: <b>{{ membersNotYetEstimated.join(', ') }}</b></span>
+      <span class="general-message size-xs">Member(s) yet to estimate: <b>{{ membersNotYetEstimated.join(', ') }}</b></span>
       @if (isScrumMaster) {
         <div>
           <button class="button size-xs" (click)="resetEstimations()">RESET</button>
@@ -81,7 +81,7 @@
         @for (estimation of estimations; track $index) {
           <div class="estimation-card">
             <span>{{ estimation.estimatedBy }}</span>
-            <span>{{ isRevealEstimations ? estimation.storyPoint : '🎰' }}</span>
+            <span>{{ isRevealEstimations ? estimation.storyPoint.length : '🎰' }}</span>
           </div>
         }
       </div>

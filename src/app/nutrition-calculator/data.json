@@ -1,0 +1,156 @@
+[
+  {
+    "food_item": "",
+    "serving_size": "",
+    "nutritional_values": {
+      "calories": "",
+      "carbohydrates": "",
+      "protein": "",
+      "fat": "",
+      "fiber": ""
+    }
+  },
+  {
+    "food_item": "Idly",
+    "serving_size": "1 medium idly (approx. 40–50g)",
+    "nutritional_values": {
+      "calories": "50 kcal",
+      "carbohydrates": "9 g",
+      "protein": "2 g",
+      "fat": "0.3 g",
+      "fiber": "0.4 g"
+    }
+  },
+  {
+    "food_item": "Dosa",
+    "serving_size": "1 medium dosa (approx. 80–100g)",
+    "nutritional_values": {
+      "calories": "120 kcal",
+      "carbohydrates": "18 g",
+      "protein": "3 g",
+      "fat": "3 g",
+      "fiber": "1 g"
+    }
+  },
+  {
+    "food_item": "Chapathi",
+    "serving_size": "1 medium chapathi (approx. 40–50g)",
+    "nutritional_values": {
+      "calories": "70 kcal",
+      "carbohydrates": "15 g",
+      "protein": "2.5 g",
+      "fat": "0.5 g",
+      "fiber": "1.2 g"
+    }
+  },
+  {
+    "food_item": "Wheat Dosa",
+    "serving_size": "1 medium wheat dosa (approx. 80–100g)",
+    "nutritional_values": {
+      "calories": "110 kcal",
+      "carbohydrates": "17 g",
+      "protein": "3 g",
+      "fat": "2.5 g",
+      "fiber": "1.5 g"
+    }
+  },
+  {
+    "food_item": "Pongal",
+    "serving_size": "1 serving (approx. 150g)",
+    "nutritional_values": {
+      "calories": "200 kcal",
+      "carbohydrates": "25 g",
+      "protein": "5 g",
+      "fat": "8 g",
+      "fiber": "1.5 g"
+    }
+  },
+  {
+    "food_item": "Poori",
+    "serving_size": "1 medium poori (approx. 25–30g)",
+    "nutritional_values": {
+      "calories": "100 kcal",
+      "carbohydrates": "10 g",
+      "protein": "2 g",
+      "fat": "6 g",
+      "fiber": "0.5 g"
+    }
+  },
+  {
+    "food_item": "Broken Wheat Upma",
+    "serving_size": "1 serving (approx. 150g)",
+    "nutritional_values": {
+      "calories": "180 kcal",
+      "carbohydrates": "30 g",
+      "protein": "5 g",
+      "fat": "4 g",
+      "fiber": "4 g"
+    }
+  },
+  {
+    "food_item": "Oats Upma",
+    "serving_size": "1 serving (approx. 150g)",
+    "nutritional_values": {
+      "calories": "170 kcal",
+      "carbohydrates": "28 g",
+      "protein": "5 g",
+      "fat": "4 g",
+      "fiber": "4 g"
+    }
+  },
+  {
+    "food_item": "Ragi Dosa",
+    "serving_size": "1 medium dosa (approx. 80–100g)",
+    "nutritional_values": {
+      "calories": "110 kcal",
+      "carbohydrates": "18 g",
+      "protein": "3 g",
+      "fat": "2 g",
+      "fiber": "2.5 g"
+    }
+  },
+  {
+    "food_item": "Garlic Bread with Cheese",
+    "serving_size": "1 slice (approx. 60g)",
+    "nutritional_values": {
+      "calories": "180 kcal",
+      "carbohydrates": "20 g",
+      "protein": "6 g",
+      "fat": "10 g",
+      "fiber": "1 g"
+    }
+  },
+  {
+    "food_item": "Bread Omelette",
+    "serving_size": "1 sandwich (2 slices bread + 1 egg, approx. 120g)",
+    "nutritional_values": {
+      "calories": "250 kcal",
+      "carbohydrates": "20 g",
+      "protein": "12 g",
+      "fat": "12 g",
+      "fiber": "1.5 g"
+    }
+  },
+  {
+    "food_item": "Bread Jam",
+    "serving_size": "1 slice bread with 1 tbsp jam (approx. 40g)",
+    "nutritional_values": {
+      "calories": "120 kcal",
+      "carbohydrates": "22 g",
+      "protein": "2 g",
+      "fat": "2 g",
+      "fiber": "0.5 g"
+    }
+  },
+  {
+    "food_item": "Egg Noodle",
+    "serving_size": "1 serving (approx. 150g)",
+    "nutritional_values": {
+      "calories": "280 kcal",
+      "carbohydrates": "35 g",
+      "protein": "10 g",
+      "fat": "10 g",
+      "fiber": "2 g"
+    }
+  }
+]
