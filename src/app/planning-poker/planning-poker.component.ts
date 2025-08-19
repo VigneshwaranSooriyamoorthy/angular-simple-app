@@ -14,7 +14,7 @@ interface Estimation {
   storyPoint: string;
 }
 
-interface data {
+interface Data {
   members: Members[],
   scrumMaster: string,
   estimations: Estimation[];
@@ -57,6 +57,7 @@ export class PlanningPokerComponent implements OnInit {
   openDialog: boolean = false;
   isRevealEstimations: boolean = false;
   nearestStoryPointAboveAverage: number = 0;
+  membersNotYetEstimated: string[] = [];
 
   ngOnInit() {
     if (window.location.href.includes('github.io')) {
@@ -64,7 +65,7 @@ export class PlanningPokerComponent implements OnInit {
     }
     fetch(this.blob)
       .then(res => res.json())
-      .then((response: data) => {
+      .then((response: Data) => {
         this.members = response.members;
         response.members.forEach(member => this.teams.push(member.teamName));
       });
@@ -86,7 +87,7 @@ export class PlanningPokerComponent implements OnInit {
     return await res.json();
   }
 
-  async putBlob(blob: data) {
+  async putBlob(blob: Data) {
     const res = await fetch(this.blob, {
       method: 'PUT',
       headers: {
@@ -103,10 +104,12 @@ export class PlanningPokerComponent implements OnInit {
     timer(0, 1000)
       .pipe(
         mergeMap(() => this.getBlob()),
-        filter((response: data) => {
+        filter((response: Data) => {
           this.isRevealEstimations = response.revealEstimations;
           this.estimations = response.estimations;
           this.nearestStoryPointAboveAverage = response.nearestSPAboveEstAvg;
+          let membersEstimated: string[] = response.estimations.map((estimation: Estimation) => estimation.estimatedBy);
+          this.membersNotYetEstimated = this.currentTeamMembers.slice(1).filter((member: string)=> !membersEstimated.includes(member));
           this.ticketName = response.ticketName;
           if (this.ticketName === '') {
             this.userDetails = true;
@@ -148,7 +151,7 @@ export class PlanningPokerComponent implements OnInit {
 
     // Update the SM
     this.getBlob()
-      .then((response: data) => {
+      .then((response: Data) => {
         response.scrumMaster = this.isScrumMaster ? this.username : '';
         response.revealEstimations = false;
         if (this.isScrumMaster) {
@@ -189,7 +192,7 @@ export class PlanningPokerComponent implements OnInit {
 
   resetEstimations() {
     this.getBlob()
-      .then((response: data) => {
+      .then((response: Data) => {
         this.estimations = [];
         response.estimations = [];
         response.revealEstimations = false;
@@ -202,7 +205,7 @@ export class PlanningPokerComponent implements OnInit {
 
   revealEstimations() {
     this.getBlob()
-      .then((response: data) => {
+      .then((response: Data) => {
         // Nearest Fibonacci number for the average estimation
         const estimationAverage = getAverageOfArrayItems(
           response
@@ -228,7 +231,7 @@ export class PlanningPokerComponent implements OnInit {
 
   newEstimation() {
     this.getBlob()
-      .then((response: data) => {
+      .then((response: Data) => {
         response.ticketName = '';
         this.estimations = [];
         response.estimations = [];

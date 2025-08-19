@@ -65,6 +65,7 @@
           </div>
         }
       </div>
+      <span class="general-message size-xs">Member(s) yet to add an estimation: <b>{{ membersNotYetEstimated.join(', ') }}</b></span>
       @if (isScrumMaster) {
         <div>
           <button class="button size-xs" (click)="resetEstimations()">RESET</button>
@@ -73,7 +74,8 @@
         </div>
       }
       @if (isRevealEstimations) {
-        <span class="general-message size-s">Nearest story point above the average is <b>{{ nearestStoryPointAboveAverage }}</b></span>
+        <span
+          class="general-message size-s">Nearest story point above the average is <b>{{ nearestStoryPointAboveAverage }}</b></span>
       }
       <div class="estimations">
         @for (estimation of estimations; track $index) {
