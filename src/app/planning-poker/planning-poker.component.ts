@@ -31,6 +31,7 @@ interface Data {
   ],
   templateUrl: './planning-poker.component.html',
   styleUrl: './planning-poker.component.scss',
+  standalone: true,
 })
 export class PlanningPokerComponent implements OnInit {
 

@@ -3,18 +3,6 @@
   color: #151b3f;
 }
 
-.size-xs {
-  font-size: 1.25cqw;
-}
-
-.size-s {
-  font-size: 2cqw;
-}
-
-.size-m {
-  font-size: 2.5cqw;
-}
-
 .uppercase {
   text-transform: uppercase;
 }
@@ -42,24 +30,40 @@ h3 {
   background-color: lightgray;
 }
 
-// ------------------------------------- User details -------------------------------------
+@media all and (max-width: 400px) {
+  .size-xs {
+    font-size: 2cqh;
+  }
 
-.user-detail {
-  display: grid;
-  grid-template-columns: 1fr 0.75fr;
-  gap: 5cqw;
-  margin: 5% 5%;
+  .size-s {
+    font-size: 3cqh;
+  }
+
+  .size-m {
+    font-size: 4cqh;
+  }
 }
+
+@media all and (min-width: 1000px) {
+  .size-xs {
+    font-size: 1.25cqw;
+  }
+
+  .size-s {
+    font-size: 2cqw;
+  }
+
+  .size-m {
+    font-size: 2.5cqw;
+  }
+}
+
+// ------------------------------------- User details -------------------------------------
 
 .user-input-section {
   display: flex;
   flex-direction: column;
-  gap: 2cqw;
-}
-
-.field {
-  display: grid;
-  grid-template-columns: 0.75fr 1fr;
+  gap: 2.5cqh;
 }
 
 .field-checkbox {
@@ -76,37 +80,43 @@ h3 {
   margin-top: 2px;
 }
 
-// ------------------------------------- Estimation -------------------------------------
+@media all and (max-width: 400px) {
+  .user-detail {
+    display: flex;
+    flex-direction: column;
+    gap: 5cqw;
+    margin: 10% 10%;
+  }
 
-.estimation-board {
-  display: flex;
-  flex-direction: column;
+  .field {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+  }
 }
+
+@media all and (min-width: 1000px) {
+  .user-detail {
+    display: grid;
+    grid-template-columns: 1fr 0.75fr;
+    gap: 5cqw;
+    margin: 5% 5%;
+  }
+
+  .field {
+    display: grid;
+    grid-template-columns: 0.75fr 1fr;
+  }
+}
+
+// ------------------------------------- Estimation -------------------------------------
 
 .welcome-message {
   margin: 3cqh 0 1cqw 1cqw;
 }
 
-.general-message {
-  margin: 0 0 1cqw 1cqw;
-}
-
-.sp-cards {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap: 1cqw;
-  justify-items: center;
-  margin: 1cqh 0 2cqh 0;
-}
-
-.sp-card {
-  border: 3px solid #151b3f;
-  border-radius: 1cqw;
-  box-shadow: 3px 2px 3px 1px #aaaaaa;
-  height: 12.5vh;
-  width: 4cqw;
-  text-align: center;
-  line-height: 12.5vh; // Same as the height of the card
+.estimation-board {
+  display: flex;
+  flex-direction: column;
 }
 
 .sp-card:hover {
@@ -120,16 +130,74 @@ h3 {
   flex-direction: row;
 }
 
-.estimation-card {
-  padding: 1cqw;
-  margin: 1cqw;
-  border: 3px solid #151b3f;
-  border-radius: 1cqw;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5cqw;
-  text-align: center;
-  font-size: 2cqw;
-  height: 10vh;
-  line-height: 5vh;
+.general-message {
+  margin: 0 0 1cqw 1cqw;
+}
+
+@media all and (max-width: 400px) {
+  .sp-cards {
+    display: grid;
+    grid-template-columns: repeat(10, 1fr);
+    gap: 1.25cqw;
+    justify-items: center;
+    margin: 1cqh 0 2cqh 0;
+  }
+
+  .sp-card {
+    border: 2px solid #151b3f;
+    border-radius: 1cqh;
+    box-shadow: 3px 2px 3px 1px #aaaaaa;
+    height: 5vh;
+    width: 4cqh;
+    text-align: center;
+    line-height: 5vh; // Same as the height of the card
+  }
+
+  .estimation-card {
+    padding: 1cqw;
+    margin: 1cqw;
+    border: 2px solid #151b3f;
+    border-radius: 1cqh;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5cqw;
+    text-align: center;
+    font-size: 2.5cqh;
+    height: 8vh;
+    line-height: 4vh;
+  }
+}
+
+@media all and (min-width: 1000px) {
+  .sp-cards {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 1cqw;
+    justify-items: center;
+    margin: 1cqh 0 2cqh 0;
+  }
+
+  .sp-card {
+    border: 3px solid #151b3f;
+    border-radius: 1cqw;
+    box-shadow: 3px 2px 3px 1px #aaaaaa;
+    height: 12.5vh;
+    width: 4cqw;
+    text-align: center;
+    line-height: 12.5vh; // Same as the height of the card
+  }
+
+  .estimation-card {
+    padding: 1cqw;
+    margin: 1cqw;
+    border: 3px solid #151b3f;
+    border-radius: 1cqw;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5cqw;
+    text-align: center;
+    font-size: 2cqw;
+    height: 10vh;
+    line-height: 5vh;
+  }
 }

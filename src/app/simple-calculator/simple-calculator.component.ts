@@ -4,6 +4,7 @@ import { Component, HostListener } from '@angular/core';
   selector: 'app-simple-calculator',
   templateUrl: './simple-calculator.component.html',
   styleUrl: './simple-calculator.component.scss',
+  standalone: true,
 })
 export class SimpleCalculatorComponent {
   buttons = ['7', '8', '9', '+/-', '⌫', '4', '5', '6', '*', '/', '1', '2', '3', '-', '=', 'C', '0', '.', '+'];
@@ -22,6 +23,8 @@ export class SimpleCalculatorComponent {
       this.compute('=');
     } else if ($event.key === 'Escape') {
       this.compute('C');
+    } else if ($event.key === 'Backspace') {
+      this.compute('⌫');
     }
   }
 
@@ -41,6 +44,12 @@ export class SimpleCalculatorComponent {
       return;
     }
 
+    // Remove last character
+    if (button === '⌫') {
+      this.entry = this.entry.slice(0, -1);
+      return;
+    }
+
     // When an operator is selected
     if (this.operators.includes(button)) {
 
@@ -49,7 +58,7 @@ export class SimpleCalculatorComponent {
         return;
       }
 
-      // Check operator pressed multiple times, If so go with the last pressed operator
+      // Check operator pressed multiple times, if so go with the last pressed operator
       if (this.operators.includes(<string>this.entry.at(-2))) {
         this.entry = `${this.entry.slice(0, -2)} ${button} `;
         this.currentOperator = button;
@@ -57,7 +66,7 @@ export class SimpleCalculatorComponent {
       }
 
       // Check whether the operator is second operator
-      if (this.operators.filter(operator => this.entry.includes(operator)).length > 0) {
+      if (this.operators.includes(this.currentOperator)) {
         this.value2 = Number(this.entry.split(` ${this.currentOperator} `).at(-1));
         let result = 0;
         switch (this.currentOperator) {
@@ -78,7 +87,7 @@ export class SimpleCalculatorComponent {
         }
         this.value1 = result;
         this.value2 = 0;
-        this.result = result.toString().includes('.') ? result.toFixed(2) : result.toString();
+        this.result = parseFloat(result.toFixed(4)).toString();
       } else {
         this.value1 = Number(this.entry);
       }

@@ -10,7 +10,7 @@
   </div>
   <div class="number-pad">
     @for (button of buttons; track $index) {
-      <button class="key-{{ button }}" (click)="compute(button)">{{ button }}</button>
+      <button class="key-{{ button }}" [disabled]="button === '+/-'" (click)="compute(button)">{{ button }}</button>
     }
   </div>
 </div>

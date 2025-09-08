@@ -17,51 +17,57 @@ export class HomeComponent {
   apps = [
     {
       'name': 'Simple Calculator',
-      'icon': 'calculate',
       'url': 'simple-calculator',
+      'icon': 'calculate',
       'path': undefined,
     },
     {
       'name': 'Testing Site',
-      'icon': 'app_registration',
       'url': 'testing-site',
+      'icon': 'app_registration',
       'path': undefined,
     },
     {
       'name': 'Tell a joke',
-      'icon': 'theater_comedy',
       'url': '',
+      'icon': 'theater_comedy',
       'path': undefined,
     },
     {
       'name': 'FLAMES',
-      'icon': 'favorite',
       'url': 'flames',
+      'icon': 'favorite',
       'path': undefined,
     },
     {
       'name': 'Digital Clock',
-      'icon': 'alarm',
       'url': 'digital-clock',
+      'icon': 'alarm',
       'path': undefined,
     },
     {
       'name': 'Pick a menu',
-      'icon': 'restaurant',
       'url': 'pick-a-menu',
+      'icon': 'restaurant',
       'path': undefined,
     },
     {
       'name': 'Planning Poker',
-      'icon': 'svg',
       'url': 'planning-poker',
+      'icon': 'svg',
       'path': 'svg/poker.svg',
     },
     {
       'name': 'AMB Calculator',
-      'icon': 'svg',
       'url': 'average-monthly-balance',
+      'icon': 'svg',
       'path': 'svg/average.svg',
+    },
+    {
+      'name': 'Nutrition Calculator',
+      'url': 'nutrition-calculator',
+      'icon': 'svg',
+      'path': 'svg/NutritionCalculator.svg',
     },
   ];
   openDialog: boolean = false;
@@ -87,11 +93,9 @@ export class HomeComponent {
 
   openApp(name: string, url: string) {
     if (url === '') {
-      switch (name) {
-        case 'Tell a joke':
-          this.getJoke();
-          this.openDialog = true;
-          break;
+      if (name === 'Tell a joke') {
+        this.getJoke();
+        this.openDialog = true;
       }
     } else {
       window.open(url, '_self');
