@@ -130,27 +130,27 @@ h3 {
   flex-direction: row;
 }
 
-.general-message {
-  margin: 0 0 1cqw 1cqw;
-}
-
 @media all and (max-width: 400px) {
+  .general-message {
+    margin: 0 0 1.5cqh 1cqw;
+  }
+
   .sp-cards {
     display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    gap: 1.25cqw;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 2cqh;
     justify-items: center;
     margin: 1cqh 0 2cqh 0;
   }
 
   .sp-card {
-    border: 2px solid #151b3f;
+    border: 2.25px solid #151b3f;
     border-radius: 1cqh;
     box-shadow: 3px 2px 3px 1px #aaaaaa;
-    height: 5vh;
-    width: 4cqh;
+    height: 7vh;
+    width: 5cqh;
     text-align: center;
-    line-height: 5vh; // Same as the height of the card
+    line-height: 7vh; // Same as the height of the card
   }
 
   .estimation-card {
@@ -169,6 +169,10 @@ h3 {
 }
 
 @media all and (min-width: 1000px) {
+  .general-message {
+    margin: 0 0 1cqw 1cqw;
+  }
+
   .sp-cards {
     display: grid;
     grid-template-columns: repeat(12, 1fr);
